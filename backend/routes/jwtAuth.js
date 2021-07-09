@@ -93,7 +93,8 @@ router.get('/confirm/:id',async (req,res,next)=>{
 router.post('/forgotpassword', async (req,res)=>{
     try {
         const {email} = req.body;
-         console.log(email);
+        const user = await pool.query("SELECT * FROM users where username = $1",[]);
+
     } catch (err) {
         console.error(err.message);
     }
